@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>TextGame — Signal at Black Ridge</title>
+  <meta name="description" content="A small, deterministic browser text adventure and reusable command-engine demo.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">TEXTGAME ENGINE v1</p>
+        <h1>Signal at Black Ridge</h1>
+        <p>Explore, collect what you need, and restore the emergency beacon. No account. No server. Your save stays on this device.</p>
+      </div>
+      <div class="status" aria-label="Game status">
+        <span id="location-chip">Base Camp</span>
+        <span id="health-chip">Health 5/5</span>
+        <span id="stamina-chip">Stamina 5/5</span>
+        <span id="turns-chip">Turns 0</span>
+      </div>
+    </header>
+
+    <section class="game-grid">
+      <div class="terminal-card">
+        <div id="output" class="output" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <form id="command-form" class="command-bar" autocomplete="off">
+          <label class="sr-only" for="command">Command</label>
+          <span aria-hidden="true">&gt;</span>
+          <input id="command" name="command" inputmode="text" autocapitalize="none" spellcheck="false" placeholder="try: look, north, take lantern…">
+          <button type="submit">Run</button>
+        </form>
+      </div>
+
+      <aside class="side-card" aria-label="Game controls and discovered locations">
+        <h2>Quick commands</h2>
+        <div id="quick-actions" class="quick-actions">
+          <button data-command="look">Look</button>
+          <button data-command="north">North</button>
+          <button data-command="east">East</button>
+          <button data-command="south">South</button>
+          <button data-command="west">West</button>
+          <button data-command="inventory">Inventory</button>
+          <button data-command="status">Status</button>
+          <button data-command="goal">Goal</button>
+          <button data-command="rest">Rest</button>
+          <button data-command="help">Help</button>
+        </div>
+        <div class="utility-actions">
+          <button id="undo" type="button" disabled>Undo</button>
+          <button id="reset" type="button">New game</button>
+        </div>
+        <h2>Discovered</h2>
+        <ul id="discovered-list" class="discovered"></ul>
+        <p class="privacy-note">Autosave uses <code>localStorage</code>. Nothing is uploaded.</p>
+      </aside>
+    </section>
+  </main>
+  <script type="module" src="src/app.mjs"></script>
+</body>
+</html>
