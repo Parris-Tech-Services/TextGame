@@ -12,7 +12,11 @@ A zero-dependency browser text-adventure engine with a complete playable demo: *
 - health, stamina, inventory, discovered locations and a real win condition
 - offline app shell through a service worker
 - Node regression tests and GitHub Actions CI
-- GitHub Pages deployment from `main`
+- static-hosting ready with relative asset paths
+
+## Deployment
+
+The app can be hosted on any static host. GitHub Pages is not enabled on this repository yet; the connected GitHub integration can update code and Actions but does not have repository-administration permission to create the Pages site. Enable **Settings → Pages → Source: GitHub Actions** once, then a Pages deployment workflow can be added safely.
 
 ## Run locally
 
